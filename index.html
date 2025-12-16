@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THANGA - Where Your Child's Voice Becomes Their Superpower</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;900&display=swap');
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #FDFCFB;
+        }
+
+        /* Hero Section with Image */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('images/hero-background.jpg') center/cover no-repeat;
+            /* FALLBACK: If no image yet, shows gradient */
+            background-color: #B8936E;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 800px;
+            padding: 40px;
+        }
+
+        h1 {
+            font-family: 'League Spartan', sans-serif;
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 8px;
+            color: #FFD700;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            border: 2px solid white;
+            color: white;
+            padding: 15px 45px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: #8B6F47;
+        }
+
+        /* Text Section */
+        .text-section {
+            max-width: 800px;
+            margin: 120px auto;
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        .text-section h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #ff0000ff;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .text-section p {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .emphasis-text {
+            font-size: 1.8rem;
+            color: #DC143C;
+            font-weight: 400;
+            margin-top: 40px;
+        }
+
+        /* Split Image/Text Sections */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+
+        .split-image {
+            background-size: cover;
+            background-position: center;
+            background-color: #E8DED2;
+        }
+
+        .split-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 60px;
+            background: #FDFCFB;
+        }
+
+        .split-content-inner {
+            max-width: 500px;
+        }
+
+        .split-content h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #ff0000ff;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .split-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .split-content ul {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .split-content li {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .split-content li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #DC143C;
+        }
+
+        /* Full Width Image Section */
+        .full-image-section {
+            height: 70vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: #8B6F47;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.4);
+        }
+
+        .image-text {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            max-width: 900px;
+            padding: 40px;
+        }
+
+        .image-text h2 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+        }
+
+        .image-text p {
+            font-size: 1.5rem;
+            line-height: 2;
+            font-weight: 300;
+        }
+
+        /* Gallery Grid */
+        .gallery-section {
+            padding: 120px 40px;
+            background: #FDFCFB;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #ff0000ff;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            aspect-ratio: 4/5;
+            background-size: cover;
+            background-position: center;
+            background-color: #E8DED2;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 120px 40px;
+            background: #F5F1ED;
+        }
+
+        .video-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            aspect-ratio: 16/9;
+            background: #000;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 120px 40px;
+            background: #FDFCFB;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+
+        .testimonial-card {
+            padding: 0;
+            border: none;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-author {
+            font-size: 0.95rem;
+            color: #8B6F47;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-style: normal;
+        }
+
+        /* Details Section */
+        .details-section {
+            padding: 120px 40px;
+            background: #F5F1ED;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+
+        .detail-card {
+            text-align: left;
+        }
+
+        .detail-card h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #8B6F47;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .detail-card ul {
+            list-style: none;
+        }
+
+        .detail-card li {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        /* Registration */
+        .registration-section {
+            padding: 120px 40px;
+            background: #FDFCFB;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 60px auto 0;
+        }
+
+        .form-instructions {
+            background: #F5F1ED;
+            padding: 40px;
+            border-left: 3px solid #DC143C;
+            margin-bottom: 40px;
+        }
+
+        .form-instructions h3 {
+            color: #8B6F47;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .form-instructions p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        /* Contact */
+        .contact-section {
+            padding: 100px 40px;
+            background: linear-gradient(rgba(139, 111, 71, 0.05), rgba(139, 111, 71, 0.05)),
+                        url('images/contact-bg.jpg') center/cover;
+            background-color: #E8DED2;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #ff0000ff;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+        }
+
+        .contact-item {
+            margin-bottom: 30px;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            color: #ffffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .contact-item a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #DC143C;
+        }
+
+        /* Footer */
+        footer {
+            background: #ff0000ff;
+            color: white;
+            text-align: center;
+            padding: 60px 40px;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .footer-small {
+            font-size: 0.9rem;
+            margin-top: 20px;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .split-section {
+                grid-template-columns: 1fr;
+            }
+
+            .split-image {
+                min-height: 400px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-large {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .text-section h2,
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .split-content {
+                padding: 60px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero with Background Image -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>THANGA</h1>
+            <p class="tagline">Where Your Child's Voice Becomes Their Superpower</p>
+            <a href="#register" class="cta-button">Register Now</a>
+        </div>
+    </section>
+
+    <!-- Opening Statement -->
+    <section class="text-section">
+        <h2>What happens when a child loses their mother tongue?</h2>
+        <p>They lose more than words. They lose stories, identity, connection to their ancestors, and the confidence to stand tall in their own skin.</p>
+        <p class="emphasis-text">Thanga changes that.</p>
+    </section>
+
+    <!-- What is Thanga - Split Section -->
+    <section class="split-section">
+        <div class="split-image" style="background-image: url('images/thanga-workshop1.jpg');"></div>
+        <div class="split-content">
+            <div class="split-content-inner">
+                <h2>What is Thanga?</h2>
+                <p>Thanga is a transformative linguistic theatre and music carnival for children aged 7-18.</p>
+                <p>Over immersive workshops, your child doesn't just learn isiZulu and SeSotho—they live it, breathe it, perform it.</p>
+                <ul>
+                    <li>Create wholly original performances from scratch</li>
+                    <li>Master language comprehension and speaking</li>
+                    <li>Unlock fearless creative confidence</li>
+                    <li>Develop leadership that lasts a lifetime</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Thanga - Reverse Split -->
+    <section class="split-section">
+        <div class="split-content">
+            <div class="split-content-inner">
+                <h2>Why Thanga?</h2>
+                <p style="font-size: 1.3rem; font-weight: 500; margin-bottom: 30px;">This is not childcare. This is not edutainment.</p>
+                <p>Thanga is a once-in-a-lifetime transformative experience designed to help your child become the person the world isn't allowing them to be.</p>
+                <p>While other camps babysit, we build.</p>
+                <p style="margin-top: 30px; font-style: italic;">We centre your child's confidence, cultural identity, creative expression, and leadership skills.</p>
+            </div>
+        </div>
+        <div class="split-image" style="background-image: url('images/thanga-performance.jpg');"></div>
+    </section>
+
+    <!-- Full Width Image with Text Overlay -->
+    <section class="full-image-section" style="background-image: url('images/thanga-hero2.jpg');">
+        <div class="image-overlay"></div>
+        <div class="image-text">
+            <h2>The Stakes Are High</h2>
+            <p>Every generation that loses its mother tongue loses a piece of its soul. Your child deserves to speak with the power of their ancestors, to move through the world with cultural confidence, and to create art that tells their story.</p>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="section-header">
+            <h2>See Thanga in Action</h2>
+            <p>Watch our children discover their voices, embrace their heritage, and create magic on stage.</p>
+        </div>
+        <div class="video-container">
+            <!-- INSERT YOUR VIDEO EMBED HERE -->
+            <!-- Example: <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe> -->
+            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #1a1a1a; color: white; font-size: 1.2rem;">
+                Video Player: Add your YouTube/Vimeo embed code here
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-section">
+        <div class="section-header">
+            <h2>Our Gallery</h2>
+            <p>Moments of transformation, creativity, and cultural pride.</p>
+        </div>
+        <div class="gallery-grid">
+            <!-- Replace these with your actual images -->
+            <div class="gallery-item gallery-large" style="background-image: url('images/gallery1.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery2.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery3.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery4.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery5.jpg');"></div>
+            <div class="gallery-item gallery-large" style="background-image: url('images/gallery6.jpg');"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-header">
+            <h2>What Parents & Children Say</h2>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Replace with actual parent testimonial about how Thanga transformed their child's connection to their heritage and boosted their confidence in speaking isiZulu."</p>
+                <p class="testimonial-author">— Phumla, Sandton</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Replace with testimonial highlighting the theatre experience, language skills improvement, and the lasting impact on the child's development."</p>
+                <p class="testimonial-author">— Alessandra, Bedfordview</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Replace with a child's perspective about their favorite moments at Thanga and how it made them feel about their language and culture."</p>
+                <p class="testimonial-author">— Chelsea, Age 12</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details -->
+    <section class="details-section">
+        <div class="section-header">
+            <h2>Workshop Details</h2>
+        </div>
+        <div class="details-grid">
+            <div class="detail-card">
+                <h3>Schedule</h3>
+                <ul>
+                    <li>4 One-Day Workshops</li>
+                    <li>Every Sunday in January</li>
+                    <li>January 10, 17, 24 & 31</li>
+                    <li>10:00 - 16:00</li>
+                </ul>
+            </div>
+            <div class="detail-card">
+                <h3>Age Groups</h3>
+                <ul>
+                    <li>Group 1: Ages 7-10</li>
+                    <li>Group 2: Ages 10-13</li>
+                    <li>Professional guidance throughout</li>
+                    <li>Small groups for personalized attention</li>
+                </ul>
+            </div>
+            <div class="detail-card">
+                <h3>What's Included</h3>
+                <ul>
+                    <li>All meals & refreshments</li>
+                    <li>Professional instruction</li>
+                    <li>All materials provided</li>
+                    <li>Performance showcase</li>
+                    <li>Certificate of completion</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration -->
+    <section class="registration-section" id="register">
+        <div class="section-header">
+            <h2>Register Your Child</h2>
+            <p>Spaces are limited. Secure your child's spot now.</p>
+ 
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSensCr6hqyKqHfvRvNshGFD9-vUiQBeP7vBEn2UoMlEsF9ZKw/viewform?embedded=true" width="640" height="2881" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section">
+        <div class="contact-content">
+            <h2>Get In Touch</h2>
+            
+            <div class="contact-item">
+                <div class="contact-label">Email</div>
+                <a href="mailto:info@thanga.co.za">info@thanga.co.za</a>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-label">WhatsApp</div>
+                <a href="https://wa.me/27726101298" target="_blank">+27 72 610 1298</a>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-label">Location</div>
+                <p style="font-size: 1.1rem; color: #666; margin: 0;">Johannesburg, South Africa</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Thanga: What are you waiting for Superstar?</p>
+        <p class="footer-small">© 2025 Thanga. All rights reserved.</p>
+    </footer>
+</body>
+</html>
